@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './login.css';
+
 
 function Login1() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +18,7 @@ function Login1() {
       alert('Please fill out both fields.');
     } else {
       alert(`Logging in as ${username}`);
-      // You can add further logic here for actual login functionality
+      
     }
   };
 
@@ -38,7 +40,7 @@ function Login1() {
               id="username"
               name="username"
               className="input"
-              autoComplete='off'
+              autoComplete="off"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -46,25 +48,31 @@ function Login1() {
           </div>
           <div className="formGroup">
             <label htmlFor="password" className="label">Password</label>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              name="password"
-              className="input"
-              autoComplete='off'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <div className="showPassword">
-              
-              <label htmlFor="show-password" className="checkboxLabel" onClick={handleShowPassword}>
-                {showPassword ? 'Hide Password' : 'Show Password'}
-              </label>
+            <div className="passwordWrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                className="input"
+                autoComplete="off"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span className="passwordIcon" onClick={handleShowPassword}>
+                <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}></i>
+              </span>
+            </div>
+            <div className="forgotPassword">
+              <a href="/forgot-password">Forgot Password?</a>
             </div>
           </div>
           <center><button type="submit" className="button">Login</button></center>
         </form>
+        <div className="registerLink">
+          <span>Don't have an account? </span>
+          <a href="/register">Register here</a>
+        </div>
       </div>
     </div>
   );
