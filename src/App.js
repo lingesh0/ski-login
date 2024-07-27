@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login1 from './components/Login1'; // Import the Login1 component
+import Login1 from './components/Login1'; 
 import Register from './components/Register';
+import './components/login.css';
+import './components/register.css';
 
 function App() {
   return (
